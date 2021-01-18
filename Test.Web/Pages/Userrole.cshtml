@@ -1,0 +1,25 @@
+﻿@page "{id:int}"
+@model Test.Web.Pages.UserroleModel
+@{
+}
+
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h2>Manage User Roles</h2>
+        </div>
+        <div class="card-body">
+            @foreach (var item in Model.Roles)
+            {
+                <div class="form-check m-1">
+                    <input name="AreChecked" type="checkbox" value="@item.RoleName" @(item.IsSelected? "checked" : "") /> @item.RoleName<br />
+                </div>
+            }
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Update" class="btn btn-primary"
+                   style="width:auto" />
+        </div>
+    </div>
+</form>
